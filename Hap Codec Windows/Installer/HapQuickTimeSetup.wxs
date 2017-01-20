@@ -11,7 +11,7 @@
             <Directory Id="INSTALLDIR" Name="Component Directory">
                 <Component Id="HAP.QTX" DiskId="1" Guid="7BAC52F0-ED51-4065-9C08-74121BDDBEB6">
                     <File Id="HAP.QTX" Name="Hap.qtx" Source="..\Release\Hap.qtx" />
-                </Component>
+                </Component>  
             </Directory>
         </Directory>
         <Feature Id="DefaultFeature" Title="Main Feature" Level="1">
@@ -25,7 +25,7 @@
         </UI>
         <Condition Message="The Hap QuickTime component is only supported on Windows Vista, Windows Server 2008, or higher."><![CDATA[Installed OR (VersionNT >= 600)]]></Condition>
         <DirectoryRef Id="TARGETDIR">
-            <Merge Id="VCRedist" SourceFile="C:\Program Files (x86)\Common Files\Merge Modules\Microsoft_VC120_CRT_x86.msm" DiskId="1" Language="0" />
+            <Merge Id="VCRedist" SourceFile="C:\Program Files (x86)\Common Files\Merge Modules\Microsoft_VC140_CRT_x86.msm" DiskId="1" Language="0" />
         </DirectoryRef>
         <Feature Id="VCRedist" Title="Visual C++ 12.0 Runtime" AllowAdvertise="no" Display="hidden" Level="1">
             <MergeRef Id="VCRedist" />

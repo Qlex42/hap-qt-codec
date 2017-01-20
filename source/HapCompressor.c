@@ -392,6 +392,8 @@ bail:
 	return err;
 }
 
+#define D_LABS_HARD_CODED_CHUNK_COUNT 16
+
 // Return the maximum size of compressed data for the image in bytes.
 // Note that this function is only used when the ICM client is using a compression sequence
 // (created with CompressSequenceBegin, not ICMCompressionSessionCreate).
@@ -411,7 +413,7 @@ Hap_CGetMaxCompressionSize(
 
     unsigned int count = 1;
     unsigned long sizes[2];
-    unsigned int chunks[2] = {1, 1};
+    unsigned int chunks[2] = {D_LABS_HARD_CODED_CHUNK_COUNT, D_LABS_HARD_CODED_CHUNK_COUNT};
     unsigned int textureFormats[2];
 
     switch (glob->type) {
@@ -808,7 +810,7 @@ static void Background_Encode(void *info)
     }
 
     compressors[0] = compressors[1] = HapCompressorSnappy;
-    chunkCounts[0] = chunkCounts[1] = 1;
+    chunkCounts[0] = chunkCounts[1] = D_LABS_HARD_CODED_CHUNK_COUNT;
 
     hapResult = HapEncode(bufferCount,
                           inputBuffers,
